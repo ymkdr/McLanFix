@@ -1,5 +1,7 @@
 # McLanFix
 
+[![release](https://img.shields.io/github/v/release/ymkdr/McLanFix?label=release)](https://github.com/ymkdr/McLanFix/releases) [![license](https://img.shields.io/github/license/ymkdr/McLanFix)](LICENSE) [![build](https://github.com/ymkdr/McLanFix/actions/workflows/build.yml/badge.svg)](https://github.com/ymkdr/McLanFix/actions/workflows/build.yml)
+
 **免 mod 的 Minecraft 局域网联机补丁：让离线账号也能进「对局域网开放」的世界，并给樱花穿透一个固定端口可指。**
 
 支持 Minecraft Java 版 **1.7 ~ 1.21.x**，原版 / Forge / Fabric / NeoForge / 整合包通用，**不需要安装任何 mod**。

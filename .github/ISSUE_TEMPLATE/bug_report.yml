@@ -1,0 +1,59 @@
+name: 问题反馈
+description: 联机失败、补丁不生效、报错等
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！请尽量把信息填全，否则很难定位。
+        提问前建议先看一眼 README 的「常见问题」。
+
+  - type: input
+    id: mcversion
+    attributes:
+      label: 游戏版本
+      placeholder: 例如 1.20.1 / 1.12.2 / 1.7.10
+    validations:
+      required: true
+
+  - type: dropdown
+    id: loader
+    attributes:
+      label: 加载器
+      options:
+        - 原版（无 mod）
+        - Forge
+        - Fabric
+        - NeoForge
+        - 整合包
+    validations:
+      required: true
+
+  - type: input
+    id: java
+    attributes:
+      label: Java 版本
+      placeholder: 例如 Java 8u51 / 17.0.9 / 21
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 游戏日志（前 30 行，含 [McLanFix]）
+      render: text
+      placeholder: 把 PCL「游戏日志」页开头的几十行贴进来
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. 启动游戏，日志显示 [McLanFix] 已加载
+        2. 开局域网，端口 25565
+        3. 樱花 TCP 隧道本地端口 25565
+        4. 朋友直接连接，报 xxx
+    validations:
+      required: true

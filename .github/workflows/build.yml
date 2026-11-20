@@ -1,0 +1,33 @@
+name: build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Build agent jar
+        run: |
+          curl -sSL -o asm.jar https://repo1.maven.org/maven2/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar
+          mkdir -p out asm
+          javac --release 8 -encoding UTF-8 -cp asm.jar -d out src/lanfix/Agent.java
+          (cd asm && jar xf ../asm.jar)
+          printf 'Premain-Class: lanfix.Agent\nCan-Retransform-Classes: true\nCan-Redefine-Classes: true\n' > manifest.txt
+          jar cfm McLanFix.jar manifest.txt -C out . -C asm .
+          ls -l McLanFix.jar
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: McLanFix
+          path: McLanFix.jar
