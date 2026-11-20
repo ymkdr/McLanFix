@@ -7,6 +7,8 @@
 支持 Minecraft Java 版 **1.7 ~ 1.21.x**，原版 / Forge / Fabric / NeoForge / 整合包通用，**不需要安装任何 mod**。
 
 > 已在 **1.20.1 原版 + 离线账号 + 樱花穿透 TCP 隧道** 的跨省联机场景实测通过。
+>
+> **官方唯一发布地址**：https://github.com/ymkdr/McLanFix 。其他来源的同名工具与作者无关；下载后请核对 Release 里公布的 SHA256。
 
 ---
 

@@ -23,7 +23,12 @@ import org.objectweb.asm.Opcodes;
  */
 public final class Agent {
 
+    /** 版本号与官方地址：任何二次打包都改不掉这行日志，便于用户辨认来源。 */
+    public static final String VERSION = "1.0.1";
+    public static final String HOMEPAGE = "https://github.com/ymkdr/McLanFix";
+
     public static void premain(String args, Instrumentation inst) {
+        System.out.println("[McLanFix] v" + VERSION + " 官方仓库 " + HOMEPAGE);
         System.out.println("[McLanFix] 已加载，正在关闭正版会话验证（离线联机模式）");
         inst.addTransformer(new SessionTransformer(), true);
     }
