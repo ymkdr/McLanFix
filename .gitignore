@@ -1,0 +1,12 @@
+# build artifacts
+build/
+out/
+stage/
+testout/
+lib/*.jar
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.iml
