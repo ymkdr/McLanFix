@@ -2,7 +2,13 @@ name: build
 
 on:
   push:
+    branches: [main]
   pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -18,7 +24,7 @@ jobs:
 
       - name: Build agent jar
         run: |
-          curl -sSL -o asm.jar https://repo1.maven.org/maven2/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar
+          curl -sSL --retry 3 --retry-delay 2 -o asm.jar https://repo1.maven.org/maven2/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar
           mkdir -p out asm
           javac --release 8 -encoding UTF-8 -cp asm.jar -d out src/lanfix/Agent.java
           (cd asm && jar xf ../asm.jar)
